@@ -27,14 +27,26 @@
     </form>
 
     <!-- 変更のフォーム -->
-    <form action="/update" method="post">
+    <form action="/update" method="post" id="update">
         <input type="text" name="title" placeholder="title">
         <input type="text" name="body" placeholder="body">
         <input type="submit" value="Update">
-        <!-- 変更するレコードを指定するため、お願い一覧を、inputタグのラジオボタンに -->
-        {% for dream in all_dream %}
-        <div><input type="radio" name="update" value={{dream.id}}>{{dream.title}}：{{dream.body}}（{{dream.date}}）</input></div>
-        {% endfor %}
     </form>
+
+    <!-- 削除のチェックボックス -->
+    <form action="/delete" method="post" id="delete">
+        <input type="submit" value="選択したお願いを削除">
+    </form>
+        <!-- 変更するレコードを指定するため、お願い一覧をラジオボタンに -->
+        <!-- 削除するレコードを指定するため、お願い一覧をチェックボックスに -->
+        <!-- フォームが入れ子構造になってうまく表示されなくなってしまうため、formタグを外に出して、formタグのid属性と、inputタグのform属性で紐付ける -->
+        {% for dream in all_dream %}
+        <div>
+            <input type="radio" name="update" form="update" value={{dream.id}}>
+            <input type="checkbox" name="delete" form="delete" value={{dream.id}}>
+            {{dream.title}}：{{dream.body}}（{{dream.date}})
+        </div>
+        {% endfor %}
+
     </body>
 </html>

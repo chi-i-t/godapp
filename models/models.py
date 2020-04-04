@@ -5,7 +5,7 @@ from datetime import datetime
 class Dream(Base):
     __tablename__ = 'dreams'
     id = Column(Integer, primary_key=True)
-    title = Column(String(128), unique=True)
+    title = Column(String(128))
     body = Column(Text)
     date = Column(DateTime, default=datetime.now())
 

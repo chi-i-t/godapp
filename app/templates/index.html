@@ -19,16 +19,22 @@
 
     <img src="/static/images/internet_god.png" alt="神様">
 
-    <!-- 簡単なフォームを追加 -->
+    <!-- 追加のフォーム -->
     <form action="/add" method="post">
         <input type="text" name="title" placeholder="title">
         <input type="text" name="body" placeholder="body">
         <input type="submit" value="Add">
     </form>
 
-    <!-- 全dreamをタイトル：内容（作成日時）というフォーマットで表示 -->
-    {% for dream in all_dream %}
-    <p>{{dream.title}}：{{dream.body}}（{{dream.date}}）</p>
-    {% endfor %}
+    <!-- 変更のフォーム -->
+    <form action="/update" method="post">
+        <input type="text" name="title" placeholder="title">
+        <input type="text" name="body" placeholder="body">
+        <input type="submit" value="Update">
+        <!-- 変更するレコードを指定するため、お願い一覧を、inputタグのラジオボタンに -->
+        {% for dream in all_dream %}
+        <div><input type="radio" name="update" value={{dream.id}}>{{dream.title}}：{{dream.body}}（{{dream.date}}）</input></div>
+        {% endfor %}
+    </form>
     </body>
 </html>

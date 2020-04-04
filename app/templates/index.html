@@ -18,8 +18,10 @@
     </form>
 
     <img src="/static/images/internet_god.png" alt="神様">
-    {% for word in spell %}
-    <p>{{word}}</p>
+
+    <!-- 全dreamをタイトル：内容（作成日時）というフォーマットで表示 -->
+    {% for dream in all_dream %}
+    <p>{{dream.title}}：{{dream.body}}（{{dream.date}}）</p>
     {% endfor %}
     </body>
 </html>

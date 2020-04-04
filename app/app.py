@@ -1,5 +1,7 @@
 #Flaskとrender_template（HTMLを表示させるための関数）をインポート
 from flask import Flask,render_template,request
+# models.pyで定義したクラスをインポート
+from models.models import Dream
 
 #Flaskオブジェクトの生成
 app = Flask(__name__)
@@ -18,8 +20,8 @@ def index():
 @app.route("/index",methods=["post"])
 def post():
     name = request.form["name"]
-    spell = ["あああ","いいい","ううう"]
-    return render_template("index.html",name=name,spell=spell)
+    all_dream = Dream.query.all()
+    return render_template("index.html",name=name,all_dream=all_dream)
 
 #app.pyをターミナルから直接呼び出した時だけ、app.run()を実行する
 if __name__ == "__main__":

@@ -129,6 +129,7 @@ def logout():
     return redirect(url_for("top",status="logout"))
 
 
-#app.pyをターミナルから直接呼び出した時だけ、app.run()を実行する
+#app.pyをターミナルから直接呼び出した時だけ、app.run()を実行する.
+# app.pyを実行した状態でファイルを開いて中身を書き換えるとその内容が反映されるので、コードを変えて上書きしてその結果を確認しつつ作業したいときに便利
 if __name__ == "__main__":
     app.run(debug=True)

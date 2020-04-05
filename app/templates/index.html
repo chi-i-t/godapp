@@ -3,6 +3,9 @@
     <head>
         <title>{{name}}</title>
     </head>
+
+    <a href="/logout">ログアウトする</a>
+
     <body>
     {% if name == "のぶりん" %}
     <h1>{{name}}のインターネット神様</h1>
@@ -12,11 +15,6 @@
     <h1>ただの神様</h1>
     {% endif %}
     
-    <form action="/index" method="POST">
-        <input type="text" name="name" placeholder="Enter name">
-        <input type="submit" value="Submit">
-    </form>
-
     <img src="/static/images/internet_god.png" alt="神様">
 
     <!-- 追加のフォーム -->
